@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Special Elite';
+}
+
+.header {
+  width: 100%;
+  height: 100vh;
+  /* background-color: linear-gradient(rgba(255, 255, 255, .3), rgba(255, 255, 255, .5));
+  background-image: url(images/bg.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat; */
+  background: linear-gradient(rgba(255, 255, 255, .3), rgba(255, 255, 255, .5)), url(images/bg.jpg) fixed center no-repeat;
+  background-size: cover;
+}
+
+.hamburger-menu {
+  width: 55px;
+  height: 55px;
+  background-color: rgb(41, 157, 252);
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  border: none;
+  border-radius: 50%;
+  outline: none; 
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 300; /* only works on positioned elements (position: absolute, position: relative, position: fixed, or position: sticky) */
+  transition: all 0.5s;
+}
+.change .hamburger-menu {
+  background-color: #eee;
+}
+
+.line {
+  width: 30px;
+  height: 2px;
+  background-color: #eee;
+  margin: 2px 0;
+  border-radius: 10%;
+  transform-origin: right; /* X transformation begining */
+  transition: all 0.5s;
+}
+
+/* transforming the menu lines into X. I call it "X transformation" */
+.change .line-1 {
+  transform: rotate(-40deg) translateY(-5px);
+  background-color: rgb(41, 157, 252);
+}
+
+.change .line-2 {
+  opacity: 0;
+}
+
+.change .line-3 {
+  transform: rotate(40deg) translateY(5px);
+  background-color: rgb(41, 157, 252);
+}
+/* the end of "X Transformation" */
+
+.bg-cover {
+  background-color: rgb(119, 194, 255, .5);
+  width: 45px;
+  height: 45px;
+  position: fixed;
+  top: 35px;
+  right: 35px;
+  border-radius: 50%; /* to hide bg-cover behind the hamburger-menu icon */
+  /* transform: scale(150); increses the size of an element */
+  z-index: 100;
+  transition: transform 1s;
+}
+
+.change .bg-cover {
+  transform: scale(150);
+}
+
+.nav-list {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  z-index: 200;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 1s;
+}
+
+.change .nav-list {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* space between items */
+.nav-item {
+  margin: 1.5vh 0; /* I'm using viewport height measurement units to make menu more responsible on different screen sizes*/
+}
+
+.nav-link {
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgb(51, 51, 51);
+  transition: letter-spacing 0.2s;
+}
+
+.nav-link:hover {
+  letter-spacing: 0.5rem;
+}
+
